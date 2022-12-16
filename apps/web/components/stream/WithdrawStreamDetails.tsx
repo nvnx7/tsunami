@@ -47,6 +47,8 @@ const WithdrawStreamDetail: FC<IStreamDetailsProps> = ({ utxo, ...props }) => {
         if (currentTime >= utxo.stopTime) {
           setProgress(100);
         } else {
+          console.log('diff', currentTime - utxo.startTime);
+
           const progress = Math.ceil(
             ((currentTime - utxo.startTime) * 100) / (utxo.stopTime - utxo.startTime),
           );
@@ -80,7 +82,7 @@ const WithdrawStreamDetail: FC<IStreamDetailsProps> = ({ utxo, ...props }) => {
           <Tbody>
             <Tr>
               <Td>Total Stream Amount</Td>
-              <Td>{amount} ETH</Td>
+              <Td>{amount} tokens</Td>
             </Tr>
             <Tr>
               <Td>Start Time</Td>
@@ -96,7 +98,7 @@ const WithdrawStreamDetail: FC<IStreamDetailsProps> = ({ utxo, ...props }) => {
             </Tr>
             <Tr>
               <Td>Rate</Td>
-              <Td>{rate} ETH/sec</Td>
+              <Td>{rate} tokens/sec</Td>
             </Tr>
           </Tbody>
         </Table>
@@ -104,7 +106,7 @@ const WithdrawStreamDetail: FC<IStreamDetailsProps> = ({ utxo, ...props }) => {
       <Box>
         You can withdraw :
         <Text fontWeight="bold" color="green.500">
-          {withdrawAmt} ETH
+          {withdrawAmt} tokens
         </Text>
         from this stream
       </Box>

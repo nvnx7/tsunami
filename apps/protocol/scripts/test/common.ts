@@ -16,7 +16,8 @@ export const receiverKeyPair = new KeyPair(
 // export const tsunamiAddress = '0xc4c55B2c2Bb6fD0229A7aA508e33bc4Ca54D0aa0'; // wETH withdraws
 export const tsunamiAddress = '0x56aDcC1BaF658C19FA4B149270e351db01957ca4'; // ETH withdraws
 
-const rpcUrl = process.env.RPC_GOERLI as string;
+// const rpcUrl = process.env.RPC_GOERLI as string;
+const rpcUrl = process.env.RPC_SHARDEUM16 as string;
 const privateKeys = (process.env.PRIVATE_KEYS_TEST as string).split(',');
 export const provider = new providers.JsonRpcProvider(rpcUrl);
 export const wallet = new Wallet(privateKeys[0], provider);
@@ -36,7 +37,10 @@ export const scanStreamUTXOFor = async (
 ) => {
   if (!events) {
     const filter = tsunami.filters.NewCommitment();
-    events = await tsunami.queryFilter(filter, 0);
+    console.log('filter', filter);
+
+    events = await tsunami.queryFilter(filter, 0, 'latest');
+    console.log(events);
   }
 
   // console.log({ events });

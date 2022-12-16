@@ -81,7 +81,7 @@ const RevokeStreamDetail: FC<IStreamDetailsProps> = ({ utxo, ...props }) => {
           <Tbody>
             <Tr>
               <Td>Total Stream Amount</Td>
-              <Td>{amount} ETH</Td>
+              <Td>{amount} Tokens</Td>
             </Tr>
             <Tr>
               <Td>Start Time</Td>
@@ -97,7 +97,7 @@ const RevokeStreamDetail: FC<IStreamDetailsProps> = ({ utxo, ...props }) => {
             </Tr>
             <Tr>
               <Td>Rate</Td>
-              <Td>{rate} ETH/sec</Td>
+              <Td>{rate} tokens/sec</Td>
             </Tr>
           </Tbody>
         </Table>
@@ -105,7 +105,7 @@ const RevokeStreamDetail: FC<IStreamDetailsProps> = ({ utxo, ...props }) => {
       <Box>
         You can withdraw:
         <Text fontWeight="bold" color="green.500">
-          {withdrawAmt} ETH
+          {withdrawAmt} tokens
         </Text>
         from this stream
       </Box>

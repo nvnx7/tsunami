@@ -32,7 +32,7 @@ const main = async () => {
 
   // const tx = await tsunami.callStatic.create(proofArgs, encryptedOutput, {
   //   value: BigNumber.from(proofArgs.amount),
-  //   gasLimit: 2_000_000,
+  //   // gasLimit: 100_000,
   // });
   const tx = await tsunami.create(proofArgs, encryptedOutput, {
     value: BigNumber.from(proofArgs.amount),

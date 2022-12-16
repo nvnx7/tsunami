@@ -6,10 +6,23 @@
       "outputs": ["dist/**", ".next/**"]
     },
     "web#build": {
-      "env": ["NODE_ENV", "NEXT_PUBLIC_RPC_URL_GOERLI", "NEXT_PUBLIC_RPC_POLYGON_MUMBAI"]
+      "env": [
+        "NODE_ENV",
+        "NEXT_PUBLIC_RPC_URL_GOERLI",
+        "NEXT_PUBLIC_RPC_POLYGON_MUMBAI",
+        "NEXT_PUBLIC_RPC_SHARDEUM_LIBERTY16",
+        "NEXT_PUBLIC_RPC_SHARDEUM_LIBERTY20"
+      ]
     },
     "protocol#build": {
-      "env": ["RPC_GOERLI", "PRIVATE_KEYS_TEST"]
+      "env": [
+        "RPC_GOERLI",
+        "PRIVATE_KEYS_TEST",
+        "RPC_POLYGON_MUMBAI",
+        "RPC_GNOSIS",
+        "RPC_SHARDEUM16",
+        "RPC_SHARDEUM20"
+      ]
     },
     "lint": {
       "outputs": []

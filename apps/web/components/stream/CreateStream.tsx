@@ -133,7 +133,7 @@ const CreateStream: FC<StackProps> = ({ ...props }) => {
     <VStack as="form" alignItems="stretch" spacing={10} onSubmit={handleSubmit(submit)} {...props}>
       <HStack alignItems="end" spacing={2}>
         <FormInput label="Stream Rate" name="rate" control={control} />
-        <Text pb={4}>ETH/sec</Text>
+        <Text pb={4}>tokens/sec</Text>
       </HStack>
 
       <FormInput label="Receiver Address" name="receiverAddress" control={control} />
@@ -144,7 +144,7 @@ const CreateStream: FC<StackProps> = ({ ...props }) => {
       </HStack>
 
       <Text textAlign="center" fontWeight="bold" fontSize="xl">
-        Stream Amount: {calculateTotalStreamAmount(rate, startTime, stopTime)} ETH
+        Stream Amount: {calculateTotalStreamAmount(rate, startTime, stopTime)}
       </Text>
 
       <Button type="submit" isLoading={isLoading} loadingText="Generating proof...">

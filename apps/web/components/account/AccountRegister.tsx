@@ -10,6 +10,7 @@ import {
 import { useRegisterAccount } from 'api/registerAccount';
 import { useUI } from 'contexts/ui';
 import { FC, useEffect, useState } from 'react';
+import { BN } from 'utils/eth';
 import logger from 'utils/logger';
 import { generateKeyPairFromSignature } from 'utils/stream';
 
@@ -36,10 +37,10 @@ const AccountRegister: FC<StackProps> = ({ ...props }) => {
 
     const shieldedAddress = keyPair.address();
     logger.info(`Registering account:`, shieldedAddress);
-    console.log({ register });
 
     register?.({
       recklesslySetUnpreparedArgs: [shieldedAddress],
+      recklesslySetUnpreparedOverrides: { gasPrice: BN(3000_000_000), gasLimit: BN(1_000_000) },
     });
   };
 

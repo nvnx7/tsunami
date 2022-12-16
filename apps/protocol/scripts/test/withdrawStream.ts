@@ -17,7 +17,6 @@ const { utils } = ethers;
 const keyPairs = { sender: senderKeyPair, receiver: receiverKeyPair };
 const readStream = async () => {
   const tsunami = await getTsunami();
-
   const streams = await scanStreamUTXOFor(keyPairs, 'receiver', tsunami);
   const stream = streams?.[0];
 
@@ -28,9 +27,7 @@ const readStream = async () => {
 
 const main = async () => {
   const tsunami = await getTsunami();
-
   const streamUtxo = await readStream();
-
   const newCheckpointTime = await currentTimestamp();
 
   const { proofArgs, extData } = await prepareWithdraw({
@@ -44,9 +41,9 @@ const main = async () => {
   let balanceRecipient = await provider.getBalance(recipient);
   console.log('Balance recipient before:', balanceRecipient.toString());
 
-  const tx = await tsunami.withdraw(proofArgs, extData, { gasLimit: 2_000_000 });
-  // const tx = await tsunami.callStatic.withdraw(proofArgs, extData, { gasLimit: 2_000_000 });
-  //   console.log('tx', tx);
+  // const tx = await tsunami.withdraw(proofArgs, extData, { gasLimit: 2_000_000 });
+  const tx = await tsunami.callStatic.withdraw(proofArgs, extData, { gasLimit: 2_000_000 });
+  console.log('tx', tx);
 
   const receipt = await tx.wait();
   console.log('receipt', receipt);

@@ -12,7 +12,7 @@ export const useRegisterAccount = () => {
     abi: registrar.abi,
     functionName: 'register',
     overrides: {
-      gasLimit: BN(100_000),
+      gasLimit: BN(1000_000),
     },
   });
 
